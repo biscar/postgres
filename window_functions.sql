@@ -50,3 +50,11 @@ select noc, participated,
        rank() over (order by participated desc),
        dense_rank() over  (order by participated desc)
 from countries order by participated desc;
+
+/* avg  window*/
+
+select noc, name, age, avg(age) over (partition by noc) from athlete_events;
+
+/* avg aggregate */
+
+select noc, avg(age) from athlete_events group by noc;
